@@ -65,6 +65,7 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/pages/*', 'Pages::display');
 
         $builder->resources('Articles');
+        $builder->resources('Users');
 
         /*
          * Connect catchall routes for all controllers.

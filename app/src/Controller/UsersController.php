@@ -3,9 +3,37 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Http\Exception\NotFoundException;
+use Cake\Http\Exception\UnauthorizedException;
 
 class UsersController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('App.JWT');
+    }
+
+    public function login()
+    {
+        // Authenticate user
+        $user = $this->Users->find()->where([
+            'email' => $this->request->getData('email'),
+            'password' => $this->request->getData('password')
+        ])->first();
+
+        if (!$user) {
+            throw new UnauthorizedException('Invalid email or password');
+        }
+
+        $token = $this->JWT->generateToken(['id' => $user->id, 'email' => $user->email]);
+
+        $this->set([
+            'token' => $token,
+            '_serialize' => ['token']
+        ]);
+    }
+
     // Retrieve All Users
     public function index()
     {
@@ -16,70 +44,70 @@ class UsersController extends AppController
         ]);
     }
 
-    // Retrieve a Single Article
+    // Retrieve a Single User
     public function view($id)
     {
-        $article = $this->Users->get($id);
+        $user = $this->Users->get($id);
         $this->set([
-            'article' => $article,
-            '_serialize' => ['article']
+            'user' => $user,
+            '_serialize' => ['user']
         ]);
     }
 
-    // Create an Article
+    // Create an User
     public function add()
     {
-        $article = $this->Users->newEmptyEntity();
+        $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            $article = $this->Users->patchEntity($article, $this->request->getData());
-            if ($this->Users->save($article)) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
                 $this->set([
-                    'article' => $article,
-                    '_serialize' => ['article'],
+                    'user' => $user,
+                    '_serialize' => ['user'],
                     '_status' => 201
                 ]);
                 return;
             }
         }
         $this->set([
-            'error' => $article->getErrors(),
+            'error' => $user->getErrors(),
             '_serialize' => ['error']
         ]);
     }
 
-    // Update an Article
+    // Update an User
     public function edit($id)
     {
-        $article = $this->Users->get($id);
+        $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'put'])) {
-            $article = $this->Users->patchEntity($article, $this->request->getData());
-            if ($this->Users->save($article)) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
                 $this->set([
-                    'article' => $article,
-                    '_serialize' => ['article']
+                    'user' => $user,
+                    '_serialize' => ['user']
                 ]);
                 return;
             }
         }
         $this->set([
-            'error' => $article->getErrors(),
+            'error' => $user->getErrors(),
             '_serialize' => ['error']
         ]);
     }
 
-    // Delete an Article
+    // Delete an User
     public function delete($id)
     {
-        $article = $this->Users->get($id);
-        if ($this->Users->delete($article)) {
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
             $this->set([
-                'message' => 'Article deleted successfully',
+                'message' => 'User deleted successfully',
                 '_serialize' => ['message']
             ]);
             return;
         }
         $this->set([
-            'error' => 'Failed to delete the article',
+            'error' => 'Failed to delete the user',
             '_serialize' => ['error']
         ]);
     }

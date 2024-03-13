@@ -83,6 +83,15 @@
                 window.location.href = '/user/login';
             }
 
+            var currentDate = new Date(); //Getting current date
+            //below code for format datetime-local
+            var dateForDateTimeLocal = currentDate.getFullYear() +
+                                "-" + (((currentDate.getMonth())+1)<10?'0':'') + ((currentDate.getMonth())+1) +
+                                "-" + (currentDate.getDate()<10?'0':'') + currentDate.getDate() +
+                                "T" + (currentDate.getHours()<10?'0':'') + currentDate.getHours() +
+                                ":" + (currentDate.getMinutes()<10?'0':'') + currentDate.getMinutes() +
+                                ":" + (currentDate.getSeconds()<10?'0':'') + currentDate.getSeconds();
+
             $('#edit-form').submit(function(event) {
                 event.preventDefault();
                 var $id = $('#id').val();
@@ -90,8 +99,8 @@
                     title: $('#title').val(),
                     body: $('#body').val(),
                     user_id: $('#user_id').val(),
-                    created_at: '2024-03-12 01:20:22',
-                    updated_at: '2024-03-12 01:20:22'
+                    created_at: dateForDateTimeLocal,
+                    updated_at: dateForDateTimeLocal
                 };
 
                 $.ajax({

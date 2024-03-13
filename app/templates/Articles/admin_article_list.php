@@ -77,6 +77,9 @@
                     error: function(xhr, status, error) {
                         // Display error message
                         $('#articles').text(xhr.responseJSON.message);
+                        if(xhr.responseJSON.message == 'Invalid token') {
+                            window.location.href = '/user/login';
+                        }
                     }
                 });
 
@@ -95,6 +98,9 @@
                     error: function(xhr, status, error) {
                         // Display error message
                         $('#articles').text(xhr.responseJSON.message);
+                        if(xhr.responseJSON.message == 'Invalid token') {
+                            window.location.href = '/user/login';
+                        }
                     }
                 });
             }

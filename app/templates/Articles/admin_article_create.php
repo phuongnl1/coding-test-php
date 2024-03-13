@@ -53,7 +53,7 @@
             <div class="col-sm-9">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Create new article</h1>
+                        <h1>Create new Article</h1>
                     </div>
 
                     <div class="card-body">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="body">Body</label>
-                                <textarea class="form-control" name="body" id="body" rows="3"></textarea>
+                                <textarea class="form-control" name="body" id="body" rows="6"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
@@ -94,7 +94,6 @@
                     },
                     data: formData,
                     success: function(response) {
-                        localStorage.setItem('token', response.token);
                         // redirect to Article Management page
                         window.location.href = '/admin/article/list';
                     },
@@ -102,6 +101,9 @@
                         // Display error message
                         $('#error-msg').text(xhr.responseJSON.message);
                         $('#error-msg').removeClass("custom_hidden");
+                        if(xhr.responseJSON.message == 'Invalid token') {
+                            window.location.href = '/user/login';
+                        }
                     }
                 });
             });

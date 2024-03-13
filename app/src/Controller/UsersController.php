@@ -2,7 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Exception\UnauthorizedException;
 
 class UsersController extends AppController
@@ -14,9 +13,15 @@ class UsersController extends AppController
         $this->loadComponent('App.JWT');
     }
 
+    // Login Pape
     public function userLogin() {
     }
 
+    //Logout Pape
+    public function userLogout() {
+    }
+
+    // API Login
     public function login()
     {
         // Authenticate user
@@ -37,7 +42,7 @@ class UsersController extends AppController
         ]);
     }
 
-    // Retrieve All Users
+    // API Retrieve All Users
     public function index()
     {
         $Users = $this->Users->find('all')->toArray();
@@ -47,7 +52,7 @@ class UsersController extends AppController
         ]);
     }
 
-    // Retrieve a Single User
+    // API Retrieve a Single User
     public function view($id)
     {
         $user = $this->Users->get($id);
@@ -57,7 +62,7 @@ class UsersController extends AppController
         ]);
     }
 
-    // Create an User
+    // API Create an User
     public function add()
     {
         $user = $this->Users->newEmptyEntity();
@@ -78,7 +83,7 @@ class UsersController extends AppController
         ]);
     }
 
-    // Update an User
+    // API Update an User
     public function edit($id)
     {
         $user = $this->Users->get($id);
@@ -98,7 +103,7 @@ class UsersController extends AppController
         ]);
     }
 
-    // Delete an User
+    // API Delete an User
     public function delete($id)
     {
         $user = $this->Users->get($id);

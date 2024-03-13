@@ -47,7 +47,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="/admin/article/list">Articles list</a></li>
                     <li><a href="/admin/article/create">Create new article</a></li>
-                    <li><a href="#section2">Logout</a></li>
+                    <li><a href="/user/logout">Logout</a></li>
                 </ul>
             </div>
             <div class="col-sm-9">
@@ -76,6 +76,11 @@
     </div>
     <script>
         $(document).ready(function() {
+            // check the token from local storage
+            if (localStorage.getItem('token') == null || localStorage.getItem('user_id') == null || localStorage.getItem('email') == null) {
+                window.location.href = '/user/login';
+            }
+
             $('#create-form').submit(function(event) {
                 event.preventDefault();
                 var formData = {

@@ -59,6 +59,7 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
         $builder->connect('/user/login', ['controller' => 'Users', 'action' => 'userLogin']);
+        $builder->connect('/user/logout', ['controller' => 'Users', 'action' => 'userLogout']);
         $builder->connect('/admin/article/list', ['controller' => 'Articles', 'action' => 'adminArticleList']);
         $builder->connect('/admin/article/create', ['controller' => 'Articles', 'action' => 'adminArticleCreate']);
         $builder->connect('/admin/article/:id/edit', ['controller' => 'Articles', 'action' => 'adminArticleEdit'], ['pass' => ['id']]);

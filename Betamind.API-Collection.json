@@ -12,6 +12,16 @@
 				{
 					"name": "Retrieve All Articles",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -68,7 +78,7 @@
 							"urlencoded": []
 						},
 						"url": {
-							"raw": "http://localhost:34251/articles/3.json",
+							"raw": "http://localhost:34251/articles/14.json",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -76,7 +86,7 @@
 							"port": "34251",
 							"path": [
 								"articles",
-								"3.json"
+								"14.json"
 							]
 						}
 					},
@@ -102,12 +112,12 @@
 							"urlencoded": [
 								{
 									"key": "title",
-									"value": "Testing titlte 1",
+									"value": "I love Food",
 									"type": "text"
 								},
 								{
 									"key": "body",
-									"value": "Tetsing body 1",
+									"value": "Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
 									"type": "text"
 								},
 								{
@@ -161,12 +171,12 @@
 							"urlencoded": [
 								{
 									"key": "title",
-									"value": "Testing tilte 1 edit",
+									"value": "I love food",
 									"type": "text"
 								},
 								{
 									"key": "body",
-									"value": "Tetsing body 1 edit",
+									"value": "Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
 									"type": "text"
 								},
 								{
@@ -187,7 +197,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:34251/articles/4.json",
+							"raw": "http://localhost:34251/articles/14.json",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -195,7 +205,7 @@
 							"port": "34251",
 							"path": [
 								"articles",
-								"4.json"
+								"14.json"
 							]
 						}
 					},
@@ -228,6 +238,16 @@
 				{
 					"name": "Create a User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -235,7 +255,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "hnpsolution@gmail.com",
+									"value": "lyhuynh@gmail.com",
 									"type": "text"
 								},
 								{

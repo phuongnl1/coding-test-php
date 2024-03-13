@@ -13,6 +13,13 @@ class ArticlesController extends AppController
         $this->loadComponent('App.JWT');
     }
 
+    // Edit a Article Page
+    public function adminArticleEdit($id) {
+        $article = $this->Articles->get($id);
+        $this->set(compact('article'));
+        $this->viewBuilder()->setOption('serialize', 'article');
+    }
+
     // Article List Page
     public function adminArticleList() {
 
@@ -28,7 +35,7 @@ class ArticlesController extends AppController
     {
         // Check login token
         $token = explode(" ", $this->request->getHeader('Authorization')[0]);
-        $this->JWT->decodeToken($token[1]);
+        $decoded = $this->JWT->decodeToken($token[1]);
 
         $articles = $this->Articles->find('all')->contain(['Users'])->toArray();
         if ($articles) {
@@ -36,6 +43,8 @@ class ArticlesController extends AppController
             foreach($articles as $k => $article) {
                 $query = $likes->find('all', ['conditions' => ['Likes.article_id =' => $article['id']]]);
                 $articles[$k]->likes = $query->count();
+                $query = $likes->find('all', ['conditions' => ['Likes.article_id =' => $article['id'], 'Likes.user_id =' => $decoded['id']]]);
+                $articles[$k]->liked = $query->count();
             }
         }
 

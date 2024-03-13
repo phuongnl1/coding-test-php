@@ -34,8 +34,8 @@ class ArticlesController extends AppController
     public function index()
     {
         // Check login token
-        //$token = explode(" ", $this->request->getHeader('Authorization')[0]);
-        //$decoded = $this->JWT->decodeToken($token[1]);
+        $token = explode(" ", $this->request->getHeader('Authorization')[0]);
+        $decoded = $this->JWT->decodeToken($token[1]);
 
         $articles = $this->Articles->find('all')->contain(['Users'])->toArray();
         if ($articles) {

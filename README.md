@@ -32,7 +32,7 @@ Set up the database:
 bin/cake migrations migrate
 ```
 
-Create a admin user:
+Run command line below to create a admin user:
 
 ```
 bin/cake migrations seed --seed UsersSeed
@@ -40,9 +40,11 @@ bin/cake migrations seed --seed UsersSeed
 
 ### Accessing the Application
 
-The application should now be accessible at http://localhost:34251
+The application should now be accessible at http://localhost:34251. The system will be redirect to http://localhost:34251/user/login page then you can login with email as `admin@example.com` and password is `admin123`
 
 ## How to check
+
+I have implemented all APIs related to articles, users and like article. Please import all APIs into Postman form Betamind.`API-Collection.json`
 
 ### Authentication
 
@@ -50,7 +52,15 @@ TODO: pls summarize how to check "Authentication" bahavior
 
 ### Article Management
 
-TODO: pls summarize how to check "Article Management" bahavior
+I have implemented all APIs related to articles, and they are protected by tokens.
+
+| Title                          | Endpoints            | Remark                                                    |
+| ------------------------------ | -------------------- | ----------------------------------------------------------|
+| Retrieve All Articles (GET)    | /articles.json       | Can only be used by all users.                            |
+| Retrieve a Single Article (GET)| /articles/{id}.json  | Can only be used by all users.                            |
+| Create an Article (POST)       | /articles.json       | Can only be used by authenticated users.                  |
+| Update an Article (PUT)        | /articles/{id}.json  | Can only be used by authenticated article writer users.   |
+| Delete an Article (DELETE)     | /articles/{id}.json  | Can only be used by authenticated article writer users.   |
 
 ### Like Feature
 

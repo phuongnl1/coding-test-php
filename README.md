@@ -67,7 +67,7 @@ I have implemented all APIs related to articles, and they are protected by token
 
 | Title                          | Endpoints            | Remark                                                    |
 | ------------------------------ | -------------------- | ----------------------------------------------------------|
-| Retrieve All Articles (GET)    | /articles.json       | Can only be used by all users.                            |
+| Retrieve All Articles (GET)    | /articles.json       | Can only be used by authenticated users.                            |
 | Retrieve a Single Article (GET)| /articles/{id}.json  | Can only be used by all users.                            |
 | Create an Article (POST)       | /articles.json       | Can only be used by authenticated users.                  |
 | Update an Article (PUT)        | /articles/{id}.json  | Can only be used by authenticated users.   |

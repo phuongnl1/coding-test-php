@@ -44,7 +44,7 @@ The application should now be accessible at http://localhost:34251. The system w
 
 ## How to check
 
-I have implemented all APIs related to articles, users and like article. Please import all APIs into Postman from `Betamind.API-Collection.json` file. We are applying the Headless technology for this project.
+I have implemented all APIs related to articles, users and like article. Please import all APIs into Postman from `Betamind.API-Collection.json` file. Currently, we are applying the Headless technology for this project.
 
 ### Authentication
 

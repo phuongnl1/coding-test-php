@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "7f95c2ae-43dd-47e7-9748-5ce2c85224fd",
+		"name": "Betamind",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2883367"
+	},
+	"item": [
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Retrieve All Articles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:34251/articles.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"articles.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Single Article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:34251/articles/4.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"articles",
+								"4.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:34251/articles/3.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"articles",
+								"3.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Testing titlte 1",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Tetsing body 1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2024-03-12 01:20:22",
+									"type": "text"
+								},
+								{
+									"key": "updated_at",
+									"value": "2024-03-12 01:20:22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:34251/articles.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"articles.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Testing tilte 1 edit",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "Tetsing body 1 edit",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2024-03-12 01:20:22",
+									"type": "text"
+								},
+								{
+									"key": "updated_at",
+									"value": "2024-03-12 01:20:22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:34251/articles/4.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"articles",
+								"4.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Retrieve All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:34251/users.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"users.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "hnpsolution@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2024-03-12 12:23:22",
+									"type": "text"
+								},
+								{
+									"key": "updated_at",
+									"value": "2024-03-12 12:23:22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:34251/users.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"users.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "hnpsolution@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:34251/users/login.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"users",
+								"login.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:34251/users/2.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"users",
+								"2.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Likes",
+			"item": [
+				{
+					"name": "Retrieve All Likes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:34251/likes.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"likes.json"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like a article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZW1haWwiOiJobnBzb2x1dGlvbkBnbWFpbC5jb20ifQ.UalKPt-XIHU6sgPZN2zPWEYw2qGH5fFi6SF7iExVxfg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "article_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "created_at",
+									"value": "2024-03-12 12:23:22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:34251/likes.json",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "34251",
+							"path": [
+								"likes.json"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

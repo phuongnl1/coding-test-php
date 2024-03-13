@@ -13,10 +13,32 @@ class ArticlesController extends AppController
         $this->loadComponent('App.JWT');
     }
 
+    // Article List Page
+    public function adminArticleList() {
+
+    }
+
+    // Create New Article Page
+    public function adminArticleCreate() {
+
+    }
+
     // Retrieve All Articles
     public function index()
     {
-        $articles = $this->Articles->find('all')->toArray();
+        // Check login token
+        $token = explode(" ", $this->request->getHeader('Authorization')[0]);
+        $this->JWT->decodeToken($token[1]);
+
+        $articles = $this->Articles->find('all')->contain(['Users'])->toArray();
+        if ($articles) {
+            $likes = $this->getTableLocator()->get('Likes');
+            foreach($articles as $k => $article) {
+                $query = $likes->find('all', ['conditions' => ['Likes.article_id =' => $article['id']]]);
+                $articles[$k]->likes = $query->count();
+            }
+        }
+
         $this->set([
             'articles' => $articles,
             '_serialize' => ['articles']

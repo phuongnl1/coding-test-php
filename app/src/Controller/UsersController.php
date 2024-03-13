@@ -14,6 +14,9 @@ class UsersController extends AppController
         $this->loadComponent('App.JWT');
     }
 
+    public function userLogin() {
+    }
+
     public function login()
     {
         // Authenticate user
@@ -29,8 +32,8 @@ class UsersController extends AppController
         $token = $this->JWT->generateToken(['id' => $user->id, 'email' => $user->email]);
 
         $this->set([
-            'token' => $token,
-            '_serialize' => ['token']
+            'data' => ['user' => ['email' => $user->email, 'user_id' => $user->id], 'token' => $token],
+            '_serialize' => ['data']
         ]);
     }
 

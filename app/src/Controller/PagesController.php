@@ -45,6 +45,8 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+        return $this->redirect('/user/login');
+
         if (!$path) {
             return $this->redirect('/');
         }

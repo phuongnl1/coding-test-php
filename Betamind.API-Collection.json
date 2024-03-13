@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7f95c2ae-43dd-47e7-9748-5ce2c85224fd",
+		"_postman_id": "93b60c45-6915-48c0-96bd-a7fe91dfa7db",
 		"name": "Betamind",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2883367"
@@ -299,12 +299,12 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "hnpsolution@gmail.com",
+									"value": "admin@example.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "123456",
+									"value": "admin123",
 									"type": "text"
 								}
 							]

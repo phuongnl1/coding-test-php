@@ -32,6 +32,12 @@ Set up the database:
 bin/cake migrations migrate
 ```
 
+Create a admin user:
+
+```
+bin/cake migrations seed --seed UsersSeed
+```
+
 ### Accessing the Application
 
 The application should now be accessible at http://localhost:34251

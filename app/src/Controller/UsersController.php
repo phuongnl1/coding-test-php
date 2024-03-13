@@ -27,7 +27,7 @@ class UsersController extends AppController
         // Authenticate user
         $user = $this->Users->find()->where([
             'email' => $this->request->getData('email'),
-            'password' => $this->request->getData('password')
+            'password' => md5($this->request->getData('password'))
         ])->first();
 
         if (!$user) {
@@ -67,7 +67,9 @@ class UsersController extends AppController
     {
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $tempArray = $this->request->getData();
+            $tempArray['password'] = md5($tempArray['password']);
+            $user = $this->Users->patchEntity($user, $tempArray);
             if ($this->Users->save($user)) {
                 $this->set([
                     'user' => $user,
@@ -88,7 +90,9 @@ class UsersController extends AppController
     {
         $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+            $tempArray = $this->request->getData();
+            $tempArray['password'] = md5($tempArray['password']);
+            $user = $this->Users->patchEntity($user, $tempArray);
             if ($this->Users->save($user)) {
                 $this->set([
                     'user' => $user,

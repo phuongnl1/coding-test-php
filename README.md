@@ -40,28 +40,44 @@ bin/cake migrations seed --seed UsersSeed
 
 ### Accessing the Application
 
-The application should now be accessible at http://localhost:34251. The system will be redirect to http://localhost:34251/user/login page then you can login with email as `admin@example.com` and password is `admin123`
+The application should now be accessible at http://localhost:34251. The system will be redirect to http://localhost:34251/user/login page. You can login with email as `admin@example.com` and password is `admin123`.
 
 ## How to check
 
-I have implemented all APIs related to articles, users and like article. Please import all APIs into Postman form Betamind.`API-Collection.json`
+I have implemented all APIs related to articles, users and like article. Please import all APIs into Postman from `Betamind.API-Collection.json` file. We are applying the Headless technology for this project.
 
 ### Authentication
 
-TODO: pls summarize how to check "Authentication" bahavior
+I have implemented all APIs related to login, and they are protected by tokens.
+
+| Title                          | Endpoints            | Remark                                                    |
+| ------------------------------ | -------------------- | ----------------------------------------------------------|
+| Retrieve All Users (GET)       | /users.json          | Can only be used by all users.                            |
+| Create an User (POST)          | /users.json          | Can only be used by authenticated users.                  |
+| User login (POST)              | /users/login.json    | Can only be used by all users.                            |
+| Delete an User (DELETE)        | /articles/{id}.json  | Can only be used by authenticated users.                  |
+
+I've also implemented a login page where users can log in to manage articles. When a user clicks the login button, the system calls the user login API and returns the token if the login is successful. We use this token for calling the Articles APIs via the header with Authorization Bearer Token. It aims to secure APIs.
+
+And The `logout` link will destroy the token and redirect to login page again.
 
 ### Article Management
 
-I have implemented all APIs related to articles, and they are protected by tokens.
+I have implemented all APIs related to articles, and they are protected by tokens. Most APIs are designed for authenticated users. Additionally, CRUD features have been implemented, including an Article List page, Create New Article page, and Edit Article page. All pages utilize AJAX calls to Article APIs for content management, authenticated via tokens.
 
 | Title                          | Endpoints            | Remark                                                    |
 | ------------------------------ | -------------------- | ----------------------------------------------------------|
 | Retrieve All Articles (GET)    | /articles.json       | Can only be used by all users.                            |
 | Retrieve a Single Article (GET)| /articles/{id}.json  | Can only be used by all users.                            |
 | Create an Article (POST)       | /articles.json       | Can only be used by authenticated users.                  |
-| Update an Article (PUT)        | /articles/{id}.json  | Can only be used by authenticated article writer users.   |
-| Delete an Article (DELETE)     | /articles/{id}.json  | Can only be used by authenticated article writer users.   |
+| Update an Article (PUT)        | /articles/{id}.json  | Can only be used by authenticated users.   |
+| Delete an Article (DELETE)     | /articles/{id}.json  | Can only be used by authenticated users.   |
 
 ### Like Feature
 
-TODO: pls summarize how to check "Like Feature" bahavior
+The same behaivior I have implemented all APIs related to like a article, and they are protected by tokens. User can click like button on Article list page then the status Like will be update derectly on page by AJAX calling.
+
+| Title                          | Endpoints            | Remark                                                    |
+| ------------------------------ | -------------------- | ----------------------------------------------------------|
+| Retrieve All Likes (GET)       | /likes.json          | Can only be used by all users.                            |
+| Like a Article (POST)          | /likes.json          | Can only be used by authenticated users.                  |

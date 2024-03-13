@@ -32,7 +32,7 @@ Set up the database:
 bin/cake migrations migrate
 ```
 
-Run command line below to create a admin user:
+Run command line below to create an example admin user:
 
 ```
 bin/cake migrations seed --seed UsersSeed

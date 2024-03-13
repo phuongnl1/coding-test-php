@@ -46,7 +46,7 @@
                     <li><a href="/user/logout">Logout</a></li>
                 </ul>
             </div>
-            <div class="col-sm-9" id="articles">
+            <div class="col-sm-9" id="articles">Loading...
             </div>
         </div>
     </div>
@@ -133,7 +133,7 @@
                             "Authorization": "Bear " + $token
                         },
                         success: function(response) {
-                            console.log(response);
+                            //console.log(response);
                             window.location.href = $redirect;
                         },
                         error: function(xhr, status, error) {
@@ -157,9 +157,9 @@
                         },
                         data: $formData,
                         success: function(response) {
-                            console.log(response);
+                            //console.log(response);
                             if(response.like !== undefined && response.like) {
-                                $owner.text('Like');
+                                $owner.text('Liked');
                             } else {
                                 //$owner.text('Un-Liked');
                             }

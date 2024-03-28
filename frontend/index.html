@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Example</title>
+  <!-- Include Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <!-- Include Axios if needed -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <h3>My Profile</h3>
+      <p v-if="name.length">Name: {{ name }}</p>
+      <p>Age: {{ profile.age }}</p>
+    </div>
+    <div>
+      <h3>Maybe friends?</h3>
+      <ul v-if="maybeFriends.length">
+        <li v-for="friend in maybeFriends" :key="friend.id">
+          {{ friend.name }}
+        </li>
+      </ul>
+      <p v-else>No friends available</p>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          profile: {
+            name: this.name, // Default name
+            age: 22 // Default age
+          },
+          maybeFriends: []
+        };
+      },
+      mounted() {
+        axios.get("https://private-e843bc-betamindhiring.apiary-mock.com/users/1/maybe_friends")
+          .then(response => {
+            this.maybeFriends = response.data.maybeFriendIds;
+            this.name = response.data.name;
+            console.log(response.data.name);
+          })
+          .catch(error => {
+            console.error("Error fetching potential friends:", error);
+          });
+      }
+    });
+  </script>
+</body>
+</html>

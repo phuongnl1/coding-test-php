@@ -71,6 +71,7 @@ return function (RouteBuilder $routes): void {
         $builder->resources('Articles');
         $builder->resources('Users');
         $builder->resources('Likes');
+        $builder->resources('Follows');
 
         /*
          * Connect catchall routes for all controllers.

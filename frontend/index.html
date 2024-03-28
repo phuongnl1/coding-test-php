@@ -33,7 +33,7 @@
       data() {
         return {
           profile: {
-            name: this.name, // Default name
+            name: this.name,
             age: 22 // Default age
           },
           maybeFriends: []
@@ -47,7 +47,7 @@
             console.log(response.data.name);
           })
           .catch(error => {
-            console.error("Error fetching potential friends:", error);
+            console.error("Error fetching friends:", error);
           });
       }
     });
